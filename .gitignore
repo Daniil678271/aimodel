@@ -1,0 +1,16 @@
+# Секреты — никогда не публикуйте
+.env
+*.env
+!.env.example
+
+# Данные и кэш
+data/
+*.db
+*.db-wal
+*.db-shm
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/

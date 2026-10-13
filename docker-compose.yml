@@ -1,0 +1,20 @@
+name: gemini-telegram-bot
+
+services:
+  gemini-bot:
+    build: .
+    container_name: gemini-telegram-bot
+    restart: unless-stopped        # автоперезапуск при сбое и после перезагрузки сервера
+    env_file: .env
+    environment:
+      DATABASE_PATH: /app/data/bot.db
+    volumes:
+      - bot-data:/app/data         # история диалогов и настройки переживают обновления
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  bot-data:

@@ -1,0 +1,24 @@
+[Unit]
+Description=Gemini Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=gemini-bot
+Group=gemini-bot
+WorkingDirectory=/opt/gemini-telegram-bot
+EnvironmentFile=/opt/gemini-telegram-bot/.env
+ExecStart=/opt/gemini-telegram-bot/.venv/bin/python -m bot.main
+Restart=always
+RestartSec=5
+
+# Базовая защита
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/gemini-telegram-bot/data
+
+[Install]
+WantedBy=multi-user.target
