@@ -11,7 +11,7 @@ WORKDIR /app
 RUN useradd --create-home --uid 1000 bot
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY bot ./bot
 COPY scripts ./scripts

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from PIL import Image, ImageOps, UnidentifiedImageError
 
-from errors import MediaError
+from .errors import MediaError
 
 MAX_IMAGE_SIDE = 2048  # достаточно для распознавания мелкого текста, но экономит трафик и токены
 PDF_MIME = "application/pdf"
